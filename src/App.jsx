@@ -1,6 +1,7 @@
 import logo from './logo.svg';
-import './App.css';
+
 //  To style the app.jsx: App.css is used
+import './App.css';
 
 function App() {
   // Only 1 Tag is returned by the React
@@ -10,21 +11,13 @@ function App() {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <p> Edit <code>src/App.js</code> and save to reload. </p>
+          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer" >
             Coffee with Addy
           </a>
         </header>
       </div>
     </>
-    
   );
 }
 
