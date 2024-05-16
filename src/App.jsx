@@ -17,7 +17,8 @@ export default function App() {
     return (
         // This is the react Fragment to return multiple things as a single container
         <>
-            <Navbar name="Coffee With Addy" />
+            <Navbar title="Coffee With Addy" />
+
             {/* Nesting Function in the App Component */}
             <div className="container">
                 <h1>Hello World</h1>
