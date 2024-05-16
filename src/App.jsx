@@ -24,8 +24,9 @@ export default function App() {
           {/* Nesting Function in the App Component */}
           <div className="container">
             <Form />
-              <h1>Hello World</h1>
-              {content}
+            <hr />
+            <h3>Are you LoggedIn ?</h3>
+            {content}
           </div>
         </>
     );
