@@ -2,12 +2,18 @@
 import './App.css';
 
 let name = "Coffee with Addy";
-
-function MyButton(){
+let loggedIn = true;
+function Success(){
   return(
-    <button className="btn btn-success">Submit</button>
+    <button className="btn btn-danger">Logout</button>
   );
 }
+function Danger(){
+  return(
+    <button className="btn btn-success">Login</button>
+  );
+}
+let content = loggedIn ? <Success /> : <Danger />
 
 // Exporting the Component
 export default function App() {
@@ -55,7 +61,7 @@ export default function App() {
       {/* Nesting Function in the App Component */}
       <div className="container">
         <h1>Hello World</h1>
-        <MyButton />
+        {content}
       </div>
     </>
   );
