@@ -2,7 +2,15 @@
 import './App.css';
 
 let name = "Coffee with Addy";
-function App() {
+
+function MyButton(){
+  return(
+    <button className="btn btn-success">Submit</button>
+  );
+}
+
+// Exporting the Component
+export default function App() {
   // Only 1 Tag is returned by the React
   return (
     // This is the react Fragment to return multiple things as a single container
@@ -43,8 +51,12 @@ function App() {
           </div>
         </div>
       </nav>
+
+      {/* Nesting Function in the App Component */}
+      <div className="container">
+        <h1>Hello World</h1>
+        <MyButton />
+      </div>
     </>
   );
 }
-
-export default App;
