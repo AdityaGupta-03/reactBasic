@@ -1,6 +1,7 @@
 //  To style the app.jsx: App.css is used
 import "./App.css";
 import Navbar from "./components/Navbar";
+import Form from "./components/Form";
 
 let loggedIn = true;
 function Success() {
@@ -17,13 +18,15 @@ export default function App() {
     return (
         // This is the react Fragment to return multiple things as a single container
         <>
-            <Navbar title="Coffee With Addy" />
+          {/* Component with Prop */}
+          <Navbar title="Coffee With Addy" />
 
-            {/* Nesting Function in the App Component */}
-            <div className="container">
-                <h1>Hello World</h1>
-                {content}
-            </div>
+          {/* Nesting Function in the App Component */}
+          <div className="container">
+            <Form />
+              <h1>Hello World</h1>
+              {content}
+          </div>
         </>
     );
 }
