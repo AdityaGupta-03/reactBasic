@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 // Changing the state by using hooks
 export default function Form(props) {
   const [text, setText] = useState("");
-  const [preview,setPreview] = useState("");
-  
+  const [preview, setPreview] = useState("");
+
   const handleOnChange = (event) => {
     setText(event.target.value);
   }
@@ -24,8 +24,8 @@ export default function Form(props) {
     setText(lowerText);
     setPreview(lowerText);
   }
-  let toClear = ()=>{
-    document.getElementById("text").value="";
+  let toClear = () => {
+    document.getElementById("text").value = "";
     setText("");
     setPreview("");
   }
@@ -33,9 +33,9 @@ export default function Form(props) {
   // This will handle the spaces tabs and newlines.
   let content = text === "" ? 0 : text.split(/[\s]+/).length;
   let readingTime = 0.004 * content;
-  let string=0;
-  if(readingTime<Math.ceil(readingTime)){
-    string = "<"+Math.ceil(readingTime);
+  let string = 0;
+  if (readingTime < Math.ceil(readingTime)) {
+    string = "<" + Math.ceil(readingTime);
   }
   return (
     <>
@@ -50,7 +50,7 @@ export default function Form(props) {
 
       </div>
       <hr />
-      
+
       <p>{text.length} characters and {content} words</p>
       <p>Estimated Reading Time: {string} minute(s)</p>
       <h2>Preview</h2>
