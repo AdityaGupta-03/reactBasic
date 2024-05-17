@@ -3,15 +3,6 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 
-let loggedIn = true;
-function Success() {
-    return <button className="btn btn-danger">Logout</button>;
-}
-function Danger() {
-    return <button className="btn btn-success">Login</button>;
-}
-let content = loggedIn ? <Success /> : <Danger />;
-
 // Exporting the Component
 export default function App() {
     // Only 1 Tag is returned by the React
@@ -24,9 +15,6 @@ export default function App() {
           {/* Nesting Function in the App Component */}
           <div className="container">
             <Form heading="Write Text here"/>
-            <hr />
-            <h3>Are you LoggedIn ?</h3>
-            {content}
           </div>
         </>
     );
