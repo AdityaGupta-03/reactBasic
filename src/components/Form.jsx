@@ -3,13 +3,16 @@ import React, { useState } from 'react';
 // Changing the state by using hooks
 export default function Form(props) {
   const [text, setText] = useState("");
+  const [preview,setPreview] = useState("");
 
   function handleUpperCase() {
     setText(text.toUpperCase());
+    setPreview(text);
   }
 
   function handleLowerCase() {
     setText(text.toLowerCase());
+    setPreview(text);
   }
 
   const handleOnChange = (event) => {
@@ -34,7 +37,7 @@ export default function Form(props) {
       <p>{text.length} characters and {content} words</p>
       <p>{0.004 * content} minutes to read the text</p>
       <h2>Preview</h2>
-      <p id='preview'>{text}</p>
+      <p id='preview'>{preview}</p>
     </>
   );
 }
