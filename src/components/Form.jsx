@@ -4,19 +4,25 @@ import React, { useState } from 'react';
 export default function Form(props) {
   const [text, setText] = useState("");
   const [preview,setPreview] = useState("");
+  
+  const handleOnChange = (event) => {
+    setText(event.target.value);
+  }
 
   function handleUpperCase() {
-    setText(text.toUpperCase());
-    setPreview(text);
+    // Simply passing text.toUpperCase() in setText will change the text but not previewed text
+    // Therefore after changing the text store it in a variable
+    const upperText = text.toUpperCase();
+    setText(upperText);
+    setPreview(upperText);
   }
 
   function handleLowerCase() {
-    setText(text.toLowerCase());
-    setPreview(text);
-  }
-
-  const handleOnChange = (event) => {
-    setText(event.target.value);
+    // Simply passing text.toLowerCase() in setText will change the text but not previewed text
+    // Therefore after changing the text store it in a variable
+    const lowerText = text.toLowerCase();
+    setText(lowerText);
+    setPreview(lowerText);
   }
 
   // This will handle the spaces tabs and newlines.
