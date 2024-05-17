@@ -23,7 +23,7 @@ export default function App() {
 
           {/* Nesting Function in the App Component */}
           <div className="container">
-            <Form heading="Analyze below"/>
+            <Form heading="Write Text here"/>
             <hr />
             <h3>Are you LoggedIn ?</h3>
             {content}
