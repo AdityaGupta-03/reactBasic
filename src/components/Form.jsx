@@ -1,5 +1,20 @@
 import React, { useState } from 'react';
 
+// as there is no use of hooks , therefore we can write this code outside export
+let toCopy = () => {
+  let textarea = document.getElementById("textarea");
+  textarea.select();
+
+  // Copying the text to Clipboard via Navigator web API
+  navigator.clipboard.writeText(textarea.value).then(() => {
+    let copy = document.getElementById("copy");
+    copy.innerText = "Text Copied";
+    copy.classList.replace('btn-secondary', 'btn-success');
+  }).catch(function (err) {
+    alert('Could not copy text: ', err);
+  });
+}
+
 // Changing the state by using hooks
 export default function Form(props) {
   const [text, setText] = useState("");
@@ -39,20 +54,6 @@ export default function Form(props) {
     document.getElementById("textarea").value = "";
     setText("");
     setPreview("Enter something to preview");
-  }
-
-  let toCopy = () => {
-    let textarea = document.getElementById("textarea");
-    textarea.select();
-
-    // Copying the text to Clipboard via Navigator web API
-    navigator.clipboard.writeText(textarea.value).then(() => {
-      let copy = document.getElementById("copy");
-      copy.innerText = "Text Copied";
-      copy.classList.replace('btn-secondary', 'btn-success');
-    }).catch(function (err) {
-      alert('Could not copy text: ', err);
-    });
   }
 
   let toSpace = () => {
