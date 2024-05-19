@@ -8,7 +8,7 @@ export default function Form(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
     let copy = document.getElementById("copy");
-    
+
     if (copy.innerText === "Text Copied") {
       copy.innerText = "Copy Text";
       copy.classList.replace('btn-success', 'btn-secondary');
@@ -34,11 +34,13 @@ export default function Form(props) {
     setText(lowerText);
     setPreview(lowerText);
   }
+
   let toClear = () => {
     document.getElementById("textarea").value = "";
     setText("");
     setPreview("");
   }
+
   let toCopy = () => {
     let textarea = document.getElementById("textarea");
     textarea.select();
@@ -52,6 +54,7 @@ export default function Form(props) {
       alert('Could not copy text: ', err);
     });
   }
+
   let toSpace = () => {
     // if there are more than 1 spaces replace it with single space
     let newText = text.replace(/\s+/g, ' ').trim();
@@ -65,6 +68,7 @@ export default function Form(props) {
   if (time < Math.ceil(time)) {
     readingTime = "<" + Math.ceil(time);
   }
+
   return (
     <>
       <div className='my-3'>
@@ -79,7 +83,6 @@ export default function Form(props) {
         <button className="btn btn-danger" onClick={toSpace}>Clear Spaces</button>
       </div>
       <hr />
-
       <p>{text.length} characters and {words} words</p>
       <p>Estimated Reading Time: {readingTime} minute(s)</p>
       <h2>Preview</h2>
