@@ -8,9 +8,14 @@ export default function Form(props) {
   const handleOnChange = (event) => {
     setText(event.target.value);
     let copy = document.getElementById("copy");
+    
     if (copy.innerText === "Text Copied") {
       copy.innerText = "Copy Text";
       copy.classList.replace('btn-success', 'btn-secondary');
+    }
+
+    if(text.length===0){
+      setPreview("Enter something to preview");
     }
   }
 
