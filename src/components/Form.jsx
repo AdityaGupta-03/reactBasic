@@ -50,6 +50,7 @@ export default function Form(props) {
   let toSpace = () => {
     // if there are more than 1 spaces
     let newText = text.split(/[ ]+/);
+    setText(newText);
   }
 
   // This will handle the spaces tabs and newlines.
