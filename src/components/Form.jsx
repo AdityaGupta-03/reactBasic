@@ -25,14 +25,27 @@ export default function Form(props) {
     setPreview(lowerText);
   }
   let toClear = () => {
-    document.getElementById("text").value = "";
+    document.getElementById("textarea").value = "";
     setText("");
     setPreview("");
   }
+  let toCopy = () => {
+    let textarea = document.getElementById("textarea");
+    textarea.select();
+    navigator.clipboard.writeText(textarea.value);
+
+    let copy = document.getElementById("copy");
+    copy.innerText = "Text Copied";
+    copy.classList.replace('btn-secondary', 'btn-success');
+  }
+  let toSpace = () => {
+    // if there are more than 1 spaces
+    let newText = text.split(/[ ]+/); 
+  }
 
   // This will handle the spaces tabs and newlines.
-  let content = text === "" ? 0 : text.split(/[\s]+/).length;
-  let readingTime = 0.004 * content;
+  let words = text === "" ? 0 : text.split(/[\s]+/).length;
+  let readingTime = 0.004 * words;
   let string = 0;
   if (readingTime < Math.ceil(readingTime)) {
     string = "<" + Math.ceil(readingTime);
@@ -42,16 +55,17 @@ export default function Form(props) {
       <div className='my-3'>
         <h1>{props.heading}:</h1>
         <div className="mb-3">
-          <textarea className="form-control" onChange={handleOnChange} id="text" rows="5" ></textarea>
+          <textarea className="form-control" onChange={handleOnChange} id="textarea" rows="5" ></textarea>
         </div>
         <button className="btn btn-primary " onClick={toUpperCase}>Convert to Uppercase</button>
         <button className="btn btn-warning m-3" onClick={toLowerCase}>Convert to Lowercase</button>
         <button className="btn btn-dark" onClick={toClear}>Clear Text</button>
-
+        <button className="btn btn-secondary mx-3" onClick={toCopy} id='copy'>Copy text</button>
+        <button className="btn btn-danger" onClick={toSpace}>Clear Spaces</button>
       </div>
       <hr />
 
-      <p>{text.length} characters and {content} words</p>
+      <p>{text.length} characters and {words} words</p>
       <p>Estimated Reading Time: {string} minute(s)</p>
       <h2>Preview</h2>
       <hr />

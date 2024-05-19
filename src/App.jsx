@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Form from "./components/Form";
 import WordMeaning from "./components/WordMeaning";
+import About from "./components/About";
 
 // Exporting the Component
 export default function App() {
@@ -15,8 +16,9 @@ export default function App() {
 
           {/* Nesting Function in the App Component */}
           <div className="container">
-            {/* <Form heading="Write Text here"/> */}
-            <WordMeaning />
+            <Form heading="Write Text here"/>
+            {/* <WordMeaning /> */}
+            {/* <About /> */}
           </div>
         </>
     );
