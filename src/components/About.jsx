@@ -3,7 +3,7 @@ import React from 'react'
 export default function About() {
     return (
         <div class="accordion" id="accordionExample">
-            <h1>About: </h1>
+            <h1 className='my-3'>About: </h1>
             <div class="accordion-item">
                 <h2 class="accordion-header">
                     <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
@@ -40,7 +40,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <button className="btn btn-dark">Switch to Dark Mode</button>
+            <button className="btn btn-dark my-3">Switch to Dark Mode</button>
         </div>
     );
 }
