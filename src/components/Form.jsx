@@ -14,7 +14,7 @@ export default function Form(props) {
       copy.classList.replace('btn-success', 'btn-secondary');
     }
 
-    if(text.length===0){
+    if(event.target.value ===''){
       setPreview("Enter something to preview");
     }
   }
@@ -38,7 +38,7 @@ export default function Form(props) {
   let toClear = () => {
     document.getElementById("textarea").value = "";
     setText("");
-    setPreview("");
+    setPreview("Enter something to preview");
   }
 
   let toCopy = () => {
