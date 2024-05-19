@@ -32,15 +32,19 @@ export default function Form(props) {
   let toCopy = () => {
     let textarea = document.getElementById("textarea");
     textarea.select();
-    navigator.clipboard.writeText(textarea.value);
 
-    let copy = document.getElementById("copy");
-    copy.innerText = "Text Copied";
-    copy.classList.replace('btn-secondary', 'btn-success');
+    // Copying the text to Clipboard via Navigator web API
+    navigator.clipboard.writeText(textarea.value).then(() => {
+      let copy = document.getElementById("copy");
+      copy.innerText = "Text Copied";
+      copy.classList.replace('btn-secondary', 'btn-success');
+    }).catch(function (err) {
+      alert('Could not copy text: ', err);
+    });
   }
   let toSpace = () => {
     // if there are more than 1 spaces
-    let newText = text.split(/[ ]+/); 
+    let newText = text.split(/[ ]+/);
   }
 
   // This will handle the spaces tabs and newlines.
