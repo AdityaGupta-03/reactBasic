@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Changing the state by using hooks
 export default function Form(props) {
   const [text, setText] = useState("");
-  const [preview, setPreview] = useState("");
+  const [preview, setPreview] = useState("Enter something to preview");
 
   const handleOnChange = (event) => {
     setText(event.target.value);
@@ -48,17 +48,17 @@ export default function Form(props) {
     });
   }
   let toSpace = () => {
-    // if there are more than 1 spaces
-    let newText = text.split(/[ ]+/);
-    setText(newText);
+    // if there are more than 1 spaces replace it with single space
+    let newText = text.replace(/\s+/g, ' ').trim();
+    setPreview(newText);
   }
 
   // This will handle the spaces tabs and newlines.
   let words = text === "" ? 0 : text.split(/[\s]+/).length;
-  let readingTime = 0.004 * words;
-  let string = 0;
-  if (readingTime < Math.ceil(readingTime)) {
-    string = "<" + Math.ceil(readingTime);
+  let time = 0.004 * words;
+  let readingTime = 0;
+  if (time < Math.ceil(time)) {
+    readingTime = "<" + Math.ceil(time);
   }
   return (
     <>
@@ -76,7 +76,7 @@ export default function Form(props) {
       <hr />
 
       <p>{text.length} characters and {words} words</p>
-      <p>Estimated Reading Time: {string} minute(s)</p>
+      <p>Estimated Reading Time: {readingTime} minute(s)</p>
       <h2>Preview</h2>
       <hr />
       <p id='preview'>{preview}</p>
