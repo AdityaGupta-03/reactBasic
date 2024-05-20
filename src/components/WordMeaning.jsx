@@ -22,7 +22,7 @@ export default function WordMeaning() {
   };
   const handleFind = async (e) => {
     e.preventDefault();
-    setShowWord(word);
+    setShowWord(<i>{word}</i>);
     if (word) {
       await fetchMeaning(word);
       setRendered(true);
@@ -42,7 +42,7 @@ export default function WordMeaning() {
   function Meaning(){
     return(
       <>
-        <p className='fs-5'>Meaning of {showWord} : </p>
+        <p className='fs-5'>Meaning of "{showWord}" : </p>
         <h3>{meaning}</h3>
       </>
     );
