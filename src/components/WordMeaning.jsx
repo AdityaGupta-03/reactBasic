@@ -4,6 +4,7 @@ export default function WordMeaning(props) {
   const [word, setWord] = useState('');
   const [meaning, setMeaning] = useState('');
   const buttonRef = useRef(null);
+  
   const handleChange = (e) => {
     if(e.target.value){
       setWord(e.target.value);
