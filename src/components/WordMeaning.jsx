@@ -51,9 +51,9 @@ export default function WordMeaning() {
   return (
     <div className="container my-3">
       <h1>Write Word to find Meaning: </h1>
-      <div class="form-floating mt-3">
-        <textarea class="form-control" placeholder="Drop your Word" id="text" onChange={handleChange}></textarea>
-        <label for="floatingTextarea">Drop Your Word</label>
+      <div className="form-floating mt-3">
+        <textarea className="form-control" placeholder="Drop your Word" id="text" onChange={handleChange}></textarea>
+        <label htmlFor="floatingTextarea">Drop Your Word</label>
       </div>
       <button className="btn btn-success my-3 " onClick={handleFind}>Find</button>
       <button className="btn btn-dark my-3 mx-3" onClick={handleClear}>Clear</button>

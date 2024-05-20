@@ -1,15 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-// let name = "Coffee with Addy"; 
 export default function Navbar(props) {
-  const[darkMode, setdarkMode] = useState("light");
 
-  let mode = props.Mode==="light" ? "Dark" : "Light";
-
-  let toToggle = ()=>{
-    props.mode = props.mode ==="light" ? "dark" : "light";
-  }
+  let btnText = (props.mode==="light") ? "dark" : "light";
 
   return (
     <>
@@ -32,8 +26,8 @@ export default function Navbar(props) {
               </li>
             </ul>
             <div className="form-check form-switch mx-5">
-              <label className="form-check-label" htmlFor="switch">Enable {mode} Mode</label>
-              <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={toToggle}/>
+              <label className={`form-check-label text-${btnText}`} htmlFor="switch">Enable {btnText} Mode</label>
+              <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={props.toggle}/>
             </div>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
