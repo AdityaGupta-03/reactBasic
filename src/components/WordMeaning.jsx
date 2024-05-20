@@ -1,11 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useRef} from 'react';
 
 export default function WordMeaning(props) {
   const [word, setWord] = useState('');
   const [meaning, setMeaning] = useState('');
-  const [Rendered, setRendered] = useState(false);
-  const [showWord, setShowWord] = useState('');
-
+  const buttonRef = useRef(null);
   const handleChange = (e) => {
     if(e.target.value){
       setWord(e.target.value);
@@ -14,18 +12,19 @@ export default function WordMeaning(props) {
     }
   };
 
-  const handleClear = (e) => {
-    document.getElementById("text").value="";
-    setWord("");
-    setMeaning("");
-    setRendered(false)
-  };
   const handleFind = async (e) => {
     e.preventDefault();
-    setShowWord(<i>{word}</i>);
     if (word) {
       await fetchMeaning(word);
-      setRendered(true);
+    }
+  };
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault(); // Prevents the default newline behavior in the textarea
+      if (buttonRef.current) {
+        buttonRef.current.click();
+      }
     }
   };
 
@@ -39,34 +38,33 @@ export default function WordMeaning(props) {
     }
   };
 
-  function Meaning(){
-    return(
-      <>
-        <p className='fs-5'>Meaning of "{showWord}" : </p>
-        <h3>{meaning}</h3>
-      </>
-    );
-  }
+  const handleClear = (e) => {
+    document.getElementById("text").value="";
+    setWord("");
+    setMeaning("");
+  };
 
   let color = {
     color: props.mode ==='light'?"black":"white"
   }
+
   let backgroundColor={
-    backgroundColor: props.mode ==='light'?"white":"black", 
-    color: props.mode ==='light'?"black":"white"
+    backgroundColor: props.mode ==='light' ? "white":"black", 
+    color: props.mode ==='light' ? "black":"white"
   }
+
   return (
     <div className="container my-3" style={color}>
-      <h1>Write Word to find Meaning: </h1>
-      <div className="form-floating mt-3">
-        <textarea className="form-control" placeholder="Drop your Word" id="text" onChange={handleChange} 
-        style={backgroundColor}></textarea>
+      <h1>Please enter the word: </h1>
+      <div className="form-floating mt-3" >
+        <textarea className="form-control" placeholder="Drop your Word" id="text" onKeyDown={handleKeyDown} onChange={handleChange} style={backgroundColor}></textarea>
         <label htmlFor="floatingTextarea">Drop Your Word</label>
       </div>
-      <button className="btn btn-success my-3 " onClick={handleFind}>Find</button>
-      <button className="btn btn-warning my-3 mx-3" onClick={handleClear}>Clear</button>
+      <button className="btn btn-success my-3" onClick={handleFind}  ref={buttonRef} >Find</button>
+      <button className="btn btn-warning mx-3" onClick={handleClear}>Clear</button>
       <hr />
-      {Rendered && <Meaning />}
+      <p className='fs-4'>Meaning:</p>
+      {meaning.length > 0 ? <h3>{meaning}</h3> : ""}
     </div>
   );
 }
