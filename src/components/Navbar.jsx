@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
 // let name = "Coffee with Addy"; 
 export default function Navbar(props) {
+  const[darkMode, setdarkMode] = useState("light");
+
+  let mode = props.Mode==="light" ? "Dark" : "Light";
+
+  let toToggle = ()=>{
+    props.mode = props.mode ==="light" ? "dark" : "light";
+  }
+
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
         <div className="container-fluid">
           <a className="navbar-brand" href="/">{props.title}</a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,8 +32,8 @@ export default function Navbar(props) {
               </li>
             </ul>
             <div className="form-check form-switch mx-5">
-              <label className="form-check-label" htmlFor="switch">Enable Dark Mode</label>
-              <input className="form-check-input" type="checkbox" role="switch" id="switch" />
+              <label className="form-check-label" htmlFor="switch">Enable {mode} Mode</label>
+              <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={toToggle}/>
             </div>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />

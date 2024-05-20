@@ -8,19 +8,14 @@ import { useState } from "react";
 
 // Exporting the Component
 export default function App() {
-    const [Mode, setMode] =useState("Light");
+    const [Mode, setMode] = useState("light");
 
-    let myStyle = {
-      color : "dark",
-      backgroundColor: "light"
-    }
-    
     // Only 1 Tag is returned by the React
     return (
         // This is the react Fragment to return multiple things as a single container
         <>
           {/* Component with Prop */}
-          <Navbar title="Coffee With Addy" />
+          <Navbar title="Coffee With Addy" mode={Mode}/>
 
           {/* Nesting Function in the App Component */}
           <div className="container">
