@@ -1,27 +1,21 @@
-//  To style the app.jsx: App.css is used
 import "./App.css";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 import Form from "./components/Form";
 import WordMeaning from "./components/WordMeaning";
-import About from "./components/About";
 import { useState } from "react";
 
-// Exporting the Component
+// Exporting the App Component to the index.js file
 export default function App() {
-    const [Mode, setMode] = useState("light");
-
-    // Only 1 Tag is returned by the React
+    const [mode, setMode] = useState("light");
     return (
-        // This is the react Fragment to return multiple things as a single container
         <>
-          {/* Component with Prop */}
-          <Navbar title="Coffee With Addy" mode={Mode}/>
+          <Navbar title="Coffee With Addy" mode={mode}/>
 
-          {/* Nesting Function in the App Component */}
           <div className="container">
             {/* <Form heading="Write Text here"/> */}
-            {/* <WordMeaning /> */}
-            <About />
+            <WordMeaning  mode={mode}/>
+            {/* <About /> */}
           </div>
         </>
     );
