@@ -19,6 +19,7 @@ export default function App() {
         document.body.style.backgroundColor = "white";
       }
     }
+    
     return (
         <>
           <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode}/>
