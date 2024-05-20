@@ -12,7 +12,7 @@ export default function About() {
             setmyStyle({
                 color : "white",
                 backgroundColor: "black",
-                border: "1px solid black"
+                border: "1px solid white"
             });
         }
         else{
