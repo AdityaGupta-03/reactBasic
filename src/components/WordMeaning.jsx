@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-export default function WordMeaning() {
+export default function WordMeaning(props) {
   const [word, setWord] = useState('');
   const [meaning, setMeaning] = useState('');
   const [Rendered, setRendered] = useState(false);
@@ -48,15 +48,23 @@ export default function WordMeaning() {
     );
   }
 
+  let color = {
+    color: props.mode ==='light'?"black":"white"
+  }
+  let backgroundColor={
+    backgroundColor: props.mode ==='light'?"white":"black", 
+    color: props.mode ==='light'?"black":"white"
+  }
   return (
-    <div className="container my-3">
+    <div className="container my-3" style={color}>
       <h1>Write Word to find Meaning: </h1>
       <div className="form-floating mt-3">
-        <textarea className="form-control" placeholder="Drop your Word" id="text" onChange={handleChange}></textarea>
+        <textarea className="form-control" placeholder="Drop your Word" id="text" onChange={handleChange} 
+        style={backgroundColor}></textarea>
         <label htmlFor="floatingTextarea">Drop Your Word</label>
       </div>
       <button className="btn btn-success my-3 " onClick={handleFind}>Find</button>
-      <button className="btn btn-dark my-3 mx-3" onClick={handleClear}>Clear</button>
+      <button className="btn btn-warning my-3 mx-3" onClick={handleClear}>Clear</button>
       <hr />
       {Rendered && <Meaning />}
     </div>
