@@ -26,7 +26,7 @@ export default function App() {
 
           <div className="container">
             {/* <Form heading="Write Text here"/> */}
-            <WordMeaning  mode={mode} toggle={toggleMode} />
+            <WordMeaning  mode={mode} />
             {/* <About /> */}
           </div>
         </>
