@@ -20,7 +20,7 @@ export default function App() {
       // Dismissing alert after 1.5seconds
       setTimeout(()=>{
         setAlert(null);
-      },1500);
+      },2000);
 
     }
 
