@@ -45,7 +45,7 @@ export default function WordMeaning(props) {
     document.getElementById("text").value="";
     setWord("");
     setMeaning("");
-    props.showAlert("primary", "Enter the word");
+    props.showAlert("secondary", "Enter the word");
   };
 
   let color = {
