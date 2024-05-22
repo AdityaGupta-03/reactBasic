@@ -29,7 +29,7 @@ export default function App() {
     let toggleMode = ()=>{
       if(mode==="light"){
         setMode("dark");
-        document.body.style.backgroundColor = "black";
+        document.body.style.backgroundColor = "#34153c";
         showAlert("success", "Dark Mode Enabled");
       }
       else{

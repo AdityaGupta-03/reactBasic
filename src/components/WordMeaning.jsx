@@ -53,7 +53,7 @@ export default function WordMeaning(props) {
   }
 
   let backgroundColor={
-    backgroundColor: props.mode ==='light' ? "white":"black", 
+    backgroundColor: props.mode ==='light' ? "white":"#334066", 
     color: props.mode ==='light' ? "black":"white"
   }
 
