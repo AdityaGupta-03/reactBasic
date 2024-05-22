@@ -43,7 +43,7 @@ export default function App() {
           <Alert alert={alert} />
           <div className="container">
             {/* <Form heading="Write Text here"/> */}
-            <WordMeaning  mode={mode} />
+            <WordMeaning  mode={mode} showAlert={showAlert}/>
             {/* <About /> */}
           </div>
         </>
