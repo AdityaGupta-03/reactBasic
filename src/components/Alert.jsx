@@ -6,7 +6,7 @@ export default function Alert(props) {
         return lower[0].toUpperCase() + lower.slice(1);
     }
     return (
-        props.alert && <div class={`alert alert-${props.alert.type}`} role="alert">
+        props.alert && <div class={`alert alert-${props.alert.type === "primary" ? "Please" : props.alert.type}`} role="alert">
             <a href="/" class="alert-link">{toCapitalize(props.alert.type)}</a>: {props.alert.msg}
         </div>
     )
