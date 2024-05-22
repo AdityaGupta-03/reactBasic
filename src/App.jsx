@@ -9,6 +9,8 @@ import Alert from "./components/Alert";
 // Exporting the App Component to the index.js file
 export default function App() {
     const [mode, setMode] = useState("light");
+
+    // Initally we don't want to display the alert
     const [alert, setAlert] = useState(null);
 
     let showAlert =  (type, word)=>{
@@ -33,7 +35,7 @@ export default function App() {
       else{
         setMode("light");
         document.body.style.backgroundColor = "white";
-        showAlert("warning", "light Mode Enabled");
+        showAlert("warning", "Dark Mode Disabled");
       }
     }
     
