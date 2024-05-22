@@ -1,9 +1,13 @@
 import React from 'react'
 
-export default function Alert() {
+export default function Alert(props) {
+    let toCapitalize= (word)=>{
+        let lower = word.toLowerCase();
+        return lower[0].toUpperCase() + lower.slice(1);
+    }
     return (
         <div class="alert alert-primary" role="alert">
-            A simple primary alert with <a href="/" class="alert-link">an example link</a>. Give it a click if you like.
+            <a href="/" class="alert-link">{toCapitalize(props.alert.type)}</a>: {props.alert.msg}
         </div>
     )
 }
