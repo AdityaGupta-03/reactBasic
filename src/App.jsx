@@ -17,7 +17,7 @@ export default function App() {
         msg: word
       })
 
-      // Dismissing alert after 1.5seconds
+      // Dismissing alert after 2 seconds
       setTimeout(()=>{
         setAlert(null);
       },2000);
