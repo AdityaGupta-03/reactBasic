@@ -34,10 +34,10 @@ export default function WordMeaning(props) {
     const data = await response.json();
     if (data && data.length > 0 && data[0].meanings && data[0].meanings.length > 0) {
       setMeaning(data[0].meanings[0].definitions[0].definition);
-      props.showAlert("success", "Dark Mode Enabled")
+      props.showAlert("success", "Meaning is fetched");
     } else {
       setMeaning('No definition found.');
-      props.showAlert("success", "Dark Mode Enabled")
+      props.showAlert("danger", "Please find another word");
     }
   };
 
@@ -45,7 +45,7 @@ export default function WordMeaning(props) {
     document.getElementById("text").value="";
     setWord("");
     setMeaning("");
-    props.showAlert("success", "Dark Mode Enabled")
+    props.showAlert("primary", "Enter the word");
   };
 
   let color = {
