@@ -17,10 +17,10 @@ export default function App() {
         msg: word
       })
 
-      // Dismissing alert after 2 seconds
+      // Dismissing alert after 3 seconds
       setTimeout(()=>{
         setAlert(null);
-      },2000);
+      },3000);
 
     }
 
