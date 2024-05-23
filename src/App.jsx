@@ -1,10 +1,8 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import About from "./components/About";
-import Form from "./components/Form";
-import WordMeaning from "./components/WordMeaning";
-import { useState } from "react";
 import Alert from "./components/Alert";
+import Form from "./components/Form";
+import { useState } from "react";
 
 // Exporting the App Component to the index.js file
 export default function App() {
@@ -44,9 +42,7 @@ export default function App() {
           <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode}/>
           <Alert alert={alert} />
           <div className="container">
-            {/* <Form heading="Write Text here"/> */}
-            <WordMeaning  mode={mode} showAlert={showAlert}/>
-            {/* <About /> */}
+            <Form heading="Write Text here"/>
           </div>
         </>
     );
