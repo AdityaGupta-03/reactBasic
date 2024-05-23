@@ -43,6 +43,9 @@ export default function Form(props) {
     if(upperText.length>0){
       setText(upperText);
       setPreview(upperText);
+    }else{
+      setText("");
+      setPreview("Enter something to preview");
     }
   }
 
@@ -53,6 +56,9 @@ export default function Form(props) {
     if(lowerText.length>0){
       setText(lowerText);
       setPreview(lowerText);
+    }else{
+      setText("");
+      setPreview("Enter something to preview");
     }
   }
 
