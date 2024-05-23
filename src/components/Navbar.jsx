@@ -19,10 +19,7 @@ export default function Navbar(props) {
                 <a className="nav-link active" aria-current="page" href="/">Form</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/">{props.about}</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" aria-disabled="true" href='/'>Word Meaning</a>
+                <a className="nav-link" href="/">About</a>
               </li>
             </ul>
             <div className="form-check form-switch mx-5">

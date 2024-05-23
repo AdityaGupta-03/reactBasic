@@ -42,7 +42,7 @@ export default function App() {
           <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode}/>
           <Alert alert={alert} />
           <div className="container">
-            <Form heading="Write Text here"/>
+            <Form heading="Write Text here" />
           </div>
         </>
     );
