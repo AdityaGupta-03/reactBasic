@@ -65,7 +65,7 @@ export default function Form(props) {
   }
 
   // This will handle the spaces tabs and newlines.
-  let words = (text === "" || text===" ") ? 0 : text.split(/[\s]+/).length;
+  let words = (text.replace(/\s+/g, ' ').trim().length === 0) ? 0 : (text.split(/[\s]+/).length);
   let time = 0.004 * words;
   let readingTime = 0;
   if (time < Math.ceil(time)) {
