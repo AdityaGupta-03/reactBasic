@@ -22,6 +22,8 @@ export default function Form(props) {
 
   const handleOnChange = (event) => {
     setText(event.target.value);
+
+    // If wew change the text after copy
     let copy = document.getElementById("copy");
 
     if (copy.innerText === "Text Copied") {
@@ -56,14 +58,14 @@ export default function Form(props) {
     setPreview("Enter something to preview");
   }
 
-  let toSpace = () => {
+  let handleSpace = () => {
     // if there are more than 1 spaces replace it with single space
     let newText = text.replace(/\s+/g, ' ').trim();
     setPreview(newText);
   }
 
   // This will handle the spaces tabs and newlines.
-  let words = text === "" ? 0 : text.split(/[\s]+/).length;
+  let words = (text === "" || text===" ") ? 0 : text.split(/[\s]+/).length;
   let time = 0.004 * words;
   let readingTime = 0;
   if (time < Math.ceil(time)) {
@@ -81,7 +83,7 @@ export default function Form(props) {
         <button className="btn btn-warning m-3" onClick={toLowerCase}>Convert to Lowercase</button>
         <button className="btn btn-dark" onClick={toClear}>Clear Text</button>
         <button className="btn btn-secondary mx-3" onClick={toCopy} id='copy'>Copy text</button>
-        <button className="btn btn-danger" onClick={toSpace}>Clear Spaces</button>
+        <button className="btn btn-danger" onClick={handleSpace}>Clear Spaces</button>
       </div>
       <hr />
       <p>{text.length} characters and {words} words</p>
