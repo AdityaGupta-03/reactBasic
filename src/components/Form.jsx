@@ -40,11 +40,10 @@ export default function Form(props) {
     // Simply passing text.toUpperCase() in setText will change the text but not previewed text
     // Therefore after changing the text store it in a variable
     const upperText = text.toUpperCase();
-    if(upperText.length>0){
+    if(upperText.trim().length>0){
       setText(upperText);
       setPreview(upperText);
     }else{
-      setText("");
       setPreview("Enter something to preview");
     }
   }
@@ -53,11 +52,10 @@ export default function Form(props) {
     // Simply passing text.toLowerCase() in setText will change the text but not previewed text
     // Therefore after changing the text store it in a variable
     const lowerText = text.toLowerCase();
-    if(lowerText.length>0){
+    if(lowerText.trim().length>0){
       setText(lowerText);
       setPreview(lowerText);
     }else{
-      setText("");
       setPreview("Enter something to preview");
     }
   }
