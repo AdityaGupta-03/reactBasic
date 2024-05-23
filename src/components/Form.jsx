@@ -40,16 +40,20 @@ export default function Form(props) {
     // Simply passing text.toUpperCase() in setText will change the text but not previewed text
     // Therefore after changing the text store it in a variable
     const upperText = text.toUpperCase();
-    setText(upperText);
-    setPreview(upperText);
+    if(upperText.length>0){
+      setText(upperText);
+      setPreview(upperText);
+    }
   }
 
   function toLowerCase() {
     // Simply passing text.toLowerCase() in setText will change the text but not previewed text
     // Therefore after changing the text store it in a variable
     const lowerText = text.toLowerCase();
-    setText(lowerText);
-    setPreview(lowerText);
+    if(lowerText.length>0){
+      setText(lowerText);
+      setPreview(lowerText);
+    }
   }
 
   let toClear = () => {
@@ -80,10 +84,10 @@ export default function Form(props) {
           <textarea className="form-control" onChange={handleOnChange} id="textarea" rows="5" ></textarea>
         </div>
         <button className="btn btn-primary " onClick={toUpperCase}>Convert to Uppercase</button>
-        <button className="btn btn-warning m-3" onClick={toLowerCase}>Convert to Lowercase</button>
-        <button className="btn btn-dark" onClick={toClear}>Clear Text</button>
-        <button className="btn btn-secondary mx-3" onClick={toCopy} id='copy'>Copy text</button>
-        <button className="btn btn-danger" onClick={handleSpace}>Clear Spaces</button>
+        <button className="btn btn-warning mx-3" onClick={toLowerCase}>Convert to Lowercase</button>
+        <button className="btn btn-secondary" onClick={toCopy} id='copy'>Copy text</button>
+        <button className="btn btn-danger mx-3" onClick={handleSpace}>Clear Spaces</button>
+        <button className="btn btn-info" onClick={toClear}>Clear Text</button>
       </div>
       <hr />
       <p>{text.length} characters and {words} words</p>
