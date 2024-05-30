@@ -64,7 +64,6 @@ export default function App() {
         <Alert alert={alert} />
         <div className="container">
           <Routes>
-            {/* To have a exact match while routing to another page */}
             <Route path="/" element={<Form heading="Write Text here" />} />
             <Route path="/about" element={<About />} />
           </Routes>
