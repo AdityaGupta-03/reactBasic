@@ -28,12 +28,12 @@ export default function About(props) {
 
     let myStyle = {
         color : props.mode === "dark" ? "white" : "black",
-        backgroundColor: props.mode === "dark" ? "rgb(36 26 66)" : "white",
+        backgroundColor: props.mode === "dark" ? "rgb(158 39 152)" : "white",
         border: " " + props.mode === "dark"? "1px solid white" : ""
     }
 
     return (
-        <div className="accordion px-5 py-5" id="accordionExample" style={myStyle}>
+        <div className="accordion" id="accordionExample" style={{backgroundColor: props.mode === "dark" ? "rgb(36 26 66)" : "white",}}>
             <h1 className='my-3'>About: </h1>
             <div className="accordion-item" style={myStyle}>
                 <h2 className="accordion-header">
