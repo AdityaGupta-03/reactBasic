@@ -4,14 +4,14 @@ import React, { useState } from 'react';
 let toCopy = () => {
   let textarea = document.getElementById("textarea");
   textarea.select();
+  // It is used to remove the blue selected text screen
+  document.getSelection().removeAllRanges();
 
   // Copying the text to Clipboard via Navigator web API
   navigator.clipboard.writeText(textarea.value).then(() => {
     let copy = document.getElementById("copy");
     copy.innerText = "Text Copied";
     copy.classList.replace('btn-secondary', 'btn-success');
-    // It is used to remove the blue selected text screen
-    document.getSelection().removeAllRanges();
   }).catch(function (err) {
     alert('Could not copy text: ', err);
   });

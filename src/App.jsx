@@ -40,10 +40,10 @@ export default function App() {
       document.body.style.color = "white";
       showAlert("success", "Dark Mode Enabled");
       
-      document.title = `Textutils - Dark Mode`;
-      intervalId = setInterval(() => {
-        document.title = (document.title === "Textutils - Dark Mode") ? "Install this now" : "Textutils - Dark Mode";
-      }, 2000);
+      // document.title = `Textutils - Dark Mode`;
+      // intervalId = setInterval(() => {
+      //   document.title = (document.title === "Textutils - Dark Mode") ? "Install this now" : "Textutils - Dark Mode";
+      // }, 2000);
 
     } else {
       setMode("light");
@@ -51,8 +51,8 @@ export default function App() {
       document.body.style.color = "black";
       showAlert("warning", "Dark Mode Disabled");
       
-      clearInterval(intervalId); // Clear the interval using the stored ID
-      document.title = "Textutils - Light Mode";
+      // clearInterval(intervalId); // Clear the interval using the stored ID
+      // document.title = "Textutils - Light Mode";
     }
   }
 
