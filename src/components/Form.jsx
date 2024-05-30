@@ -87,11 +87,12 @@ export default function Form(props) {
         <div className="mb-3">
           <textarea className="form-control" onChange={handleOnChange} id="textarea" rows="5" ></textarea>
         </div>
-        <button className="btn btn-primary " onClick={toUpperCase}>Convert to Uppercase</button>
-        <button className="btn btn-warning mx-3" onClick={toLowerCase}>Convert to Lowercase</button>
-        <button className="btn btn-secondary" onClick={toCopy} id='copy'>Copy text</button>
-        <button className="btn btn-danger mx-3" onClick={handleSpace}>Clear Spaces</button>
-        <button className="btn btn-info" onClick={toClear}>Clear Text</button>
+        {/* Disable the buttons if text is not there */}
+        <button disabled={text.length===0} className="btn btn-primary " onClick={toUpperCase}>Convert to Uppercase</button>
+        <button disabled={text.length===0} className="btn btn-warning mx-3" onClick={toLowerCase}>Convert to Lowercase</button>
+        <button disabled={text.length===0} className="btn btn-secondary" onClick={toCopy} id='copy'>Copy text</button>
+        <button disabled={text.length===0} className="btn btn-danger mx-3" onClick={handleSpace}>Clear Spaces</button>
+        <button disabled={text.length===0} className="btn btn-info" onClick={toClear}>Clear Text</button>
       </div>
       <hr />
       <p>{text.length} characters and {words} words</p>
