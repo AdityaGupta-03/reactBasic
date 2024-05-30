@@ -2,7 +2,14 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Alert from "./components/Alert";
 import Form from "./components/Form";
+import About from "./components/About";
+
 import { useState } from "react";
+import {
+  BrowserRouter,
+  Switch,
+  Route
+} from "react-router-dom";
 
 // Exporting the App Component to the index.js file
 export default function App() {
@@ -51,11 +58,23 @@ export default function App() {
 
   return (
     <>
-      <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode} intervalID={intervalId}/>
-      <Alert alert={alert} />
-      <div className="container">
-        <Form heading="Write Text here" />
-      </div>
+    <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode} intervalID={intervalId}/>
+    <Alert alert={alert} />
+    <div className="container">
+      <BrowserRouter>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/">
+              <Form heading="Write Text here" />
+            </Route>
+          </Switch>
+      </BrowserRouter>
+    </div>
+      
+        
+
     </>
   );
 }
