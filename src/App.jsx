@@ -60,21 +60,20 @@ export default function App() {
     <>
     <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode} intervalID={intervalId}/>
     <Alert alert={alert} />
-    <div className="container">
-      <BrowserRouter>
-          <Switch>
-            <Route path="/about">
-              <About />
-            </Route>
-            <Route path="/">
-              <Form heading="Write Text here" />
-            </Route>
-          </Switch>
-      </BrowserRouter>
-    </div>
-      
-        
-
+    
+    <BrowserRouter>
+      <div className="container">
+        <Switch>
+          {/* to have a exact match while routing to another page */}
+          <Route exact path="/about">
+            <About />
+          </Route>
+          <Route exact path="/">
+            <Form heading="Write Text here" />
+          </Route>
+        </Switch>
+      </div>
+    </BrowserRouter>
     </>
   );
 }
