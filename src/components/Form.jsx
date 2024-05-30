@@ -10,6 +10,8 @@ let toCopy = () => {
     let copy = document.getElementById("copy");
     copy.innerText = "Text Copied";
     copy.classList.replace('btn-secondary', 'btn-success');
+    // It is used to remove the blue selected text screen
+    document.getSelection().removeAllRanges();
   }).catch(function (err) {
     alert('Could not copy text: ', err);
   });
