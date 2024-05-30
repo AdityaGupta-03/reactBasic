@@ -24,6 +24,7 @@ export default function Navbar(props) {
             </ul>
             <div className="form-check form-switch mx-5">
               <label className={`form-check-label text-${btnText}`} htmlFor="switch">Enable {btnText} Mode</label>
+              {/* Using Toggle function which is defined in App class to toggle the mode of the site*/}
               <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={props.toggle}/>
             </div>
             <form className="d-flex" role="search">
