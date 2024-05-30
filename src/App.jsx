@@ -7,7 +7,7 @@ import About from "./components/About";
 import { useState } from "react";
 import {
   BrowserRouter,
-  Switch,
+  Routes,
   Route
 } from "react-router-dom";
 
@@ -58,22 +58,18 @@ export default function App() {
 
   return (
     <>
-    <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode} intervalID={intervalId}/>
-    <Alert alert={alert} />
-    
-    <BrowserRouter>
-      <div className="container">
-        <Switch>
-          {/* to have a exact match while routing to another page */}
-          <Route exact path="/about">
-            <About />
-          </Route>
-          <Route exact path="/">
-            <Form heading="Write Text here" />
-          </Route>
-        </Switch>
-      </div>
-    </BrowserRouter>
+      {/* Navbar should be inside the Browser Router to make use of Link and to */}
+      <BrowserRouter>
+        <Navbar title="Coffee With Addy" mode={mode} toggle={toggleMode} intervalID={intervalId}/>
+        <Alert alert={alert} />
+        <div className="container">
+          <Routes>
+            {/* To have a exact match while routing to another page */}
+            <Route path="/" element={<Form heading="Write Text here" />} />
+            <Route path="/about" element={<About />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
     </>
   );
 }
