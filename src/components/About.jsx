@@ -25,7 +25,8 @@ export default function About() {
             btn = "light";
         }
     }
-    
+
+    let mys
     return (
         <div className="accordion px-5 py-5" id="accordionExample" style={myStyle}>
             <h1 className='my-3'>About: </h1>
