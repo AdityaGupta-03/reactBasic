@@ -1,32 +1,37 @@
 import React from 'react'
-import { useState } from 'react';
+// import { useState } from 'react';
 
-export default function About() {
-    const [myStyle,setmyStyle]=useState({
-        color : "black",
-        backgroundColor: "white"
-    });
+export default function About(props) {
+    // const [myStyle,setmyStyle]=useState({
+    //     color : "black",
+    //     backgroundColor: "white"
+    // });
 
-    let btn;
-    let changeMode=()=>{
-        if(myStyle.color === "black"){
-            setmyStyle({
-                color : "white",
-                backgroundColor: "black",
-                border: "1px solid white"
-            });
-            btn = "dark";
-        }
-        else{
-            setmyStyle({
-                color : "black",
-                backgroundColor: "white"
-            });
-            btn = "light";
-        }
+    // let btn;
+    // let changeMode=()=>{
+    //     if(myStyle.color === "black"){
+    //         setmyStyle({
+    //             color : "white",
+    //             backgroundColor: "black",
+    //             border: "1px solid white"
+    //         });
+    //         btn = "dark";
+    //     }
+    //     else{
+    //         setmyStyle({
+    //             color : "black",
+    //             backgroundColor: "white"
+    //         });
+    //         btn = "light";
+    //     }
+    // }
+
+    let myStyle = {
+        color : props.mode === "dark" ? "black" : "white",
+        backgroundColor: props.mode === "dark" ? "white" : "black",
+        border : "1px solid",
+        borderColor : props.mode === "dark"? "white" : "black"
     }
-
-    let mys
     return (
         <div className="accordion px-5 py-5" id="accordionExample" style={myStyle}>
             <h1 className='my-3'>About: </h1>
@@ -66,7 +71,7 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <button className={`btn btn-${btn} my-3`} onClick={changeMode}>Switch to {btn} Mode</button>
+            {/* <button className={`btn btn-${btn} my-3`} onClick={changeMode}>Switch to {btn} Mode</button> */}
         </div>
     );
 }
