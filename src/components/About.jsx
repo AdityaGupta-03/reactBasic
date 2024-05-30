@@ -7,6 +7,7 @@ export default function About() {
         backgroundColor: "white"
     });
 
+    let btn;
     let changeMode=()=>{
         if(myStyle.color === "black"){
             setmyStyle({
@@ -14,17 +15,17 @@ export default function About() {
                 backgroundColor: "black",
                 border: "1px solid white"
             });
+            btn = "dark";
         }
         else{
             setmyStyle({
                 color : "black",
                 backgroundColor: "white"
             });
+            btn = "light";
         }
     }
     
-    let btn = myStyle.color==="black" ? "dark" : "light";
-
     return (
         <div className="accordion px-5 py-5" id="accordionExample" style={myStyle}>
             <h1 className='my-3'>About: </h1>
