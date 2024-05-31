@@ -22,10 +22,17 @@ export default function Navbar(props) {
                 <Link className="nav-link" to="/about">About</Link>
               </li>
             </ul>
+            <div className="d-flex">
+              <div className="rounded bg-primary mx-2" onClick={()=>{props.toggle("primary")}} style={{height:"30px",width:"30px",cursor:"pointer"}}></div>
+              <div className="rounded bg-secondary mx-2" onClick={()=>{props.toggle("secondary")}} style={{height:"30px",width:"30px",cursor:"pointer"}}></div>
+              <div className="rounded bg-warning mx-2" onClick={()=>{props.toggle("warning")}} style={{height:"30px",width:"30px",cursor:"pointer"}}></div>
+              <div className="rounded bg-success mx-2" onClick={()=>{props.toggle("success")}} style={{height:"30px",width:"30px",cursor:"pointer"}}></div>
+              <div className="rounded bg-danger mx-2" onClick={()=>{props.toggle("danger")}} style={{height:"30px",width:"30px",cursor:"pointer"}}></div>
+            </div>
             <div className="form-check form-switch mx-5">
               <label className={`form-check-label text-${btnText}`} htmlFor="switch">Enable {btnText} Mode</label>
               {/* Using Toggle function which is defined in App class to toggle the mode of the site*/}
-              <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={props.toggle}/>
+              <input className="form-check-input" type="checkbox" role="switch" id="switch" onClick={()=>{props.toggle(null)}}/>
             </div>
             <form className="d-flex" role="search">
               <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
